@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Parent.html</title>
+    <style>
+        #navi {background:coral; text-align:center}
+        #navi li {display:inline-block; padding:Spx 10px}
+        #container h1 {text-align:center; color:darkred; \
+                        text-decoration:underline}
+        #container p {font-size:14pt; letter-spacing:10px}
+
+        #galleryBox {test-align:center}
+    </style>
+</head>
+<body>
+    <h1>템플릿 상속</h1>
+    <ul id="navi">
+        <li><a href="/">홈</a></li>
+        <li><a href="/about">메뉴1</a></li>
+        <li><a href="/data">메뉴2</a></li>
+    </ul>
+    <div id="galleryBox">
+        <img src="/static/1.jpg" alt="test.jpg">
+    </div>
+    <div id="container">
+    <!-- 상속을 받을 파일 불록 : 교체영역-->
+    {% block content %}
+    {% endblock %}
+    </div>
+</body>
+</html>

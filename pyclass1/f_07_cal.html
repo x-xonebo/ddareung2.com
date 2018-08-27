@@ -1,0 +1,19 @@
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    a = 'Python'
+    b = 'Flask'
+    c = 0
+    for i in range(1,101):
+        c += i
+    return render_template('f_07.html', a=a, b=b, c=c)
+
+@app.route('/cal/')
+def home():
+    return render_template('f_07_cal.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)

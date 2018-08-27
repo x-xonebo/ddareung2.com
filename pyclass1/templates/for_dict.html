@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>딕셔너리 + for 문</title>
+    <style>
+        .tableStyle {width:500px;margin:20px auto; border-collapse:collapse}
+        .tableStyle tr th { background:skyblue; color:white; border:1px solid black; padding:10px}
+        .tableStyle tr td { border:1px solid black; padding:10px}
+    </style>
+</head>
+<body>
+    <h1>for_dict_main.html</h1>
+    <h2>딕셔너리 리스트</h2>
+    <p>{{dic}}</p>
+    <h2>for 문 이용해서 출력하기</h2>
+    <dl>
+    {% for key,value in dic.items() %}
+        <dt>{{key}}</dt>
+        <dd>{{value}}</dd>
+    {% endfor %}
+    <h2>for 문 이용해서 출력하기2 - table</h2>
+    <table class="tableStyle">
+        {% for key,value in dic.items() %}
+        <tr>
+            <th>{{key}}</th>
+            <td>{{value}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </dl>
+</body>
+</html>

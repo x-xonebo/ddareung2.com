@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>if_else_result.html</title>
+</head>
+<body>
+    <h1>if 조건문 이용하기</h1>
+    <p>Score : {{score}}</p>
+    <p>
+        {% if score == 100 %}
+        <span>100 입니다.</span>
+        {% elif score == 50 %}
+        <span>50 입니다.</span>
+        {% else %}
+        <span>100도아니고 50도 아닙니다.</span>
+        {% endif %}
+    </p>
+
+    <p> <a href='/'>홈으로 이동</a></p>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #menuBox {background:crimson}
+        #menuBox ul { width:800px }
+        #menuBox ul li {width:25%; display:inline-block; text-align:center}
+        #menuBox ul li a {color:white; font-weight:bold;
+                        text-decoration:none; font-size:12pt}
+        #menuBox ul li a:hover {color:black}
+        #contents {width:800px;margin:20px;auto}
+        #contents>h1 {font-size:30px}
+        #contents>h2 {font-size:20px; color:crimson}
+        .galleryBox {test-align:center}
+        .galleryBox img {width:48%}
+
+        .textBox {line-height:180%; font-size:14px
+                    text-align:justify}
+        .textBox p {margin-bottom:20px}
+        .peopleBox {}
+        .peopleBox div { width:32%; float:left }
+        .peopleBox div img { width:100% }
+        .peopleBox div span { display:block; background:lightgray}
+    </style>
+</head>
+<body>
+    <!-- 공통레이아웃 -->
+    <div id="menuBox">    
+        <ul>
+            <li><a href="/">showcase</a></li>
+            <li><a href="/service">service</a></li>
+            <li><a href="/designers">designers</a></li>
+            <li><a href="/packages">packages</a></li>
+            <li><a href="/contact">contact</a></li>
+        </ul>
+    </div>
+    <div id="contents">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

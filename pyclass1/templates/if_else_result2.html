@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>if_else_result.html</title>
+</head>
+<body>
+    <h1>if 조건문 이용하기</h1>
+    <p>Score : {{score2}}</p>
+    <p>
+        {% if 0<score2<20 %}
+        <span>20보다 작습니다.</span>
+        {% elif score2 > 20 %}
+        <span>20보다 큽니다.</span>
+        {% else %}
+        <span>20입니다.</span>
+        {% endif %}
+    </p>
+    <p> <a href='/'>홈으로 이동</a></p>
+</body>
+</html>

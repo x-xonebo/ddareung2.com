@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        #wrap{
+            width:900px;
+            text-align: center;
+            margin:20px auto;
+        }
+
+
+        ul li {
+            padding:10px;
+            border:1px solid red;
+            list-style:none;
+            border-bottom:none
+        }
+        ul li:last-child{
+            border-bottom:1ps solid red;
+        }
+
+        .box {
+            float:left;
+            width:30%
+        }
+    </style>
+
+</head>
+<body>
+    <h2>구구단 출력하기</h2>
+    <div class="wrap">
+    {% for i in range(2,10) %}
+        <div class="box">
+            <h3>{{i}}단</h3>
+        <ul>
+        {% for j in range(1,10) %}            
+            <li>{{i}} X {{j}} = {{i*j}}</li>
+        {% endfor %}
+        </ul>
+        </div>
+    {% endfor%}
+    </div>
+</body>
+</html>

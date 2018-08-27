@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Blog Home - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/blog-home.css" rel="stylesheet">
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=EdZNtHONbxw2jRx6a_Fv&submodules=geocoder"></script>
+    <style>
+        .asdf{
+            float:right
+        }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" >
+      <div class="container">
+        <a class="navbar-brand" href="#">따릉따릉</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="#">따릉이란?</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">서비스 이용방법</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">문의하기</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row" >
+
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+
+          <h1 class="my-4">{{maping}} 
+    
+          </h1>
+          
+          <!-- Blog Post -->
+          <div class="card mb-4">
+              <div id="map" style="width:730px;height:300px;">
+              <script>
+                var map = new naver.maps.Map('map');
+                var myaddress = '{{maping}}';
+                 // 도로명 주소나 지번 주소만 가능 (건물명 불가!!!!)                                  
+                naver.maps.Service.geocode({address: myaddress}, function(status, response) {
+                    if (status !== naver.maps.Service.Status.OK) {
+                        return alert(myaddress + '의 검색 결과가 없거나 기타 네트워크 에러');
+                    }
+                    var result = response.result;
+                    // 검색 결과 갯수: result.total
+                    // 첫번째 결과 결과 주소: result.items[0].address
+                    // 첫번째 검색 결과 좌표: result.items[0].point.y, result.items[0].point.x
+                    var myaddr = new naver.maps.Point(result.items[0].point.x, result.items[0].point.y);
+                    map.setCenter(myaddr); // 검색된 좌표로 지도 이동
+                    // 마커 표시
+                    var marker = new naver.maps.Marker({
+                      position: myaddr,
+                      map: map
+                    });
+                    
+                    var marker = new naver.maps.Marker({
+                      position: myaddr,
+                      map: map
+                    });
+                    // 마커 클릭 이벤트 처리
+                    naver.maps.Event.addListener(marker, "click", function(e) {
+                      if (infowindow.getMap()) {
+                          infowindow.close();
+                      } else {
+                          infowindow.open(map, marker);
+                      }
+                    });
+                    // 마크 클릭시 인포윈도우 오픈
+                    var infowindow = new naver.maps.InfoWindow({
+                        content: '현재위치'
+                     
+                    });
+                    var oBicycleGuide = new nhn.api.map.BicycleGuide(); // - 자전거 범례 선언
+                    oBicycleGuide.setPosition({
+                        top: 10,
+                        right: 10
+                    }); // - 자전거 범례 위치 지정
+                    oMap.addControl(oBicycleGuide);// - 자전거 범례를 지도에 추가.
+                });
+                var MARKER_ICON_URL = './img/sp_pins_spot_v2.png';
+
+                var MARKER_SPRITE_X_OFFSET = 29;
+                var MARKER_SPRITE_Y_OFFSET = 50;
+
+                var MARKER_SPRITE_POSITION = {
+
+                    "A0": [0, 0],
+                    
+                };
+
+                var myLatlng = new naver.maps.LatLng(37.570378, 127.0797197);
+
+                var mapOptions = {
+                    zoom: 11,
+                    center: myLatlng
+                };
+
+                var map = new naver.maps.Map(document.getElementById('map'), mapOptions);
+
+                var bounds = map.getBounds(),
+                    southWest = bounds.getSW(),
+                    northEast = bounds.getNE(),
+                    lngSpan = northEast.lng() - southWest.lng(),
+                    latSpan = northEast.lat() - southWest.lat();
+
+                var markers = [], marker, position;
+
+                for (var key in MARKER_SPRITE_POSITION) {
+
+                    position = new naver.maps.LatLng(
+                        southWest.lat() + latSpan * Math.random(),
+                        southWest.lng() + lngSpan * Math.random());
+
+                    marker = new naver.maps.Marker({
+                        map: map,
+                        position: position,
+                        title: key,
+                        icon: {
+                            url: MARKER_ICON_URL,
+                            size: new naver.maps.Size(24, 37),
+                            anchor: new naver.maps.Point(12, 37),
+                            origin: new naver.maps.Point(MARKER_SPRITE_POSITION[key][0], MARKER_SPRITE_POSITION[key][1])
+                        }
+                    });
+                };
+                </script>
+                
+            </div>
+            <div class="card-body">
+              <h2 class="card-title"></h2>
+              <p class="card-text">고객님의 현재위치를 기준으로 반경 5km이내의 따릉이 위치를 표시했습니다. 근처 공원을 찾으시려면 버튼을 눌러주세요.</p>
+              <p style="color:green"><br>(고객님의 위치를 중심으로 반경 10km 이내의 공원을 표시합니다)</p>
+              <span class="asdf"><a href="/abcd" class="btn btn-success">근처 공원찾기 &rarr;</a></span>
+            </div>
+            <div class="card-footer text-muted" >
+              최근 업데이트 날짜 : 8월 23일 2018년
+              &nbsp;<a href="#">업데이트 요청</a>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <ul class="pagination justify-content-center mb-4">
+            <!-- <li class="page-item">
+              <a class="page-link" href="#">&larr; </a>
+            </li>
+            <li class="page-item disabled">
+              <a class="btn btn-success" href="#"> &rarr;</a>
+            </li> -->
+          </ul>
+
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+
+          <!-- Search Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Search</h5>
+            <div class="card-body">
+              <div class="input-group">
+                  <form action="/map/" method="POST">
+                    <label for="">
+                        <input style="width:200px"type="text" name="maping" id="disabledTextInput" class="form-control" placeholder="다른지역을 찾아보세요!">
+                    </label>
+                    &nbsp;<button style="width:90px;font-size:15px"type="submit" class="btn btn-success">검색하기</button>
+                </form>              
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Categories Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Categories</h5>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#">데이트</a>
+                    </li>
+                    <li>
+                      <a href="#">공원</a>
+                    </li>
+                    <li>
+                      <a href="#">가성비</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#">오후</a>
+                    </li>
+                    <li>
+                      <a href="#">한강</a>
+                    </li>
+                    <li>
+                      <a href="#">따릉이</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Side Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">오늘의 날씨</h5>
+            <div class="card-body">
+              오후 13:00 에 비가올 예정이오니 따릉이를 이용하시기에 어려울것 같습니다!
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">멀티캠퍼스 &copy; Ddarereung 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+
+</html>
