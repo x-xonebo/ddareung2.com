@@ -60,8 +60,6 @@
           <h1 class="my-4">{{maping}} 
     
           </h1>
-          
-          <!-- Blog Post -->
           <div class="card mb-4">
               <div id="map" style="width:730px;height:300px;">
               <script>
@@ -82,12 +80,16 @@
                     var marker = new naver.maps.Marker({
                       position: myaddr,
                       map: map
+                      
                     });
                     
-                    var marker = new naver.maps.Marker({
-                      position: myaddr,
-                      map: map
-                    });
+                    {% for i in range(1, 445): %}
+                        var marker = new naver.maps.Marker({
+                        position: new naver.maps.LatLng({{wedo[i]}}, {{keungdo[i]}}),
+                        map: map
+                        });
+                    {% endfor %}
+
                     // 마커 클릭 이벤트 처리
                     naver.maps.Event.addListener(marker, "click", function(e) {
                       if (infowindow.getMap()) {
@@ -108,53 +110,19 @@
                     }); // - 자전거 범례 위치 지정
                     oMap.addControl(oBicycleGuide);// - 자전거 범례를 지도에 추가.
                 });
-                var MARKER_ICON_URL = './img/sp_pins_spot_v2.png';
-
-                var MARKER_SPRITE_X_OFFSET = 29;
-                var MARKER_SPRITE_Y_OFFSET = 50;
-
-                var MARKER_SPRITE_POSITION = {
-
-                    "A0": [0, 0],
+                
+                
+                
+                  
                     
-                };
+                   
+                    
+                   
+                
 
-                var myLatlng = new naver.maps.LatLng(37.570378, 127.0797197);
-
-                var mapOptions = {
-                    zoom: 11,
-                    center: myLatlng
-                };
-
-                var map = new naver.maps.Map(document.getElementById('map'), mapOptions);
-
-                var bounds = map.getBounds(),
-                    southWest = bounds.getSW(),
-                    northEast = bounds.getNE(),
-                    lngSpan = northEast.lng() - southWest.lng(),
-                    latSpan = northEast.lat() - southWest.lat();
-
-                var markers = [], marker, position;
-
-                for (var key in MARKER_SPRITE_POSITION) {
-
-                    position = new naver.maps.LatLng(
-                        southWest.lat() + latSpan * Math.random(),
-                        southWest.lng() + lngSpan * Math.random());
-
-                    marker = new naver.maps.Marker({
-                        map: map,
-                        position: position,
-                        title: key,
-                        icon: {
-                            url: MARKER_ICON_URL,
-                            size: new naver.maps.Size(24, 37),
-                            anchor: new naver.maps.Point(12, 37),
-                            origin: new naver.maps.Point(MARKER_SPRITE_POSITION[key][0], MARKER_SPRITE_POSITION[key][1])
-                        }
-                    });
-                };
                 </script>
+          <!-- Blog Post -->
+          
                 
             </div>
             <div class="card-body">
