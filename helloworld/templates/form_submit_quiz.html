@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <title>form submit Quiz</title>
+  <style type='text/css'>
+  .line { border:none; border-bottom:1px solid black;width:300px }
+  .formDesign { width:310px; margin:10px auto}
+   h1 {text-align:center}
+  </style>
+ </head>
+ <body>
+	<h1>퀴즈 - 폼 양식</h3>
+	<!-- submit 버튼 클릭시  /result 주소로 이동 -->
+	<form action="/result" method="post" class="formDesign">
+	  Name:<br>
+	  <input type="text" name="username" value="" class="line">
+	  <br>
+	  Email Address:<br>
+	  <input type="text" name="useremail" value="" class="line">
+	  <br><br>
+	  Phone Number:<br>
+	  <input type="text" name="userphone" value="" class="line">
+	  <br><br>
+      Message:<br>
+	  <input type="text" name="message" value="" class="line">
+	  <br>
+	  <br>
+	  <input type="submit" value="전송" style='background:black;color:white;border-radius:7px;padding:5px'>
+	</form> 
+ </body>
+</html>
+
