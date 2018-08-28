@@ -4,13 +4,13 @@
 import csv
 import random
  
-f = open('ddareng.csv', 'r')
+f = open('parkbicyclenew2.csv', 'r', encoding='UTF8')
 rdr = csv.reader(f)
 wedo = []
 keungdo = []
 for line in rdr:
-    wedo.append(float(line[9]))
-    keungdo.append(float(line[10]))
+    wedo.append(float(line[5]))
+    keungdo.append(float(line[6]))
     
 
 f.close()
