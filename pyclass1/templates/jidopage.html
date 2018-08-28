@@ -82,6 +82,9 @@
                       map: map
                       
                     });
+                    naver.maps.Event.addListener(map, 'click', function(e) {
+                        marker.setPosition(e.latlng);
+                    });
                     
 
                     {% for i in range(1, 1163): %}{
