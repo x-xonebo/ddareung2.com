@@ -35,6 +35,10 @@ def grape():
     
     return render_template('parkpark.html')
 
+#@app.route('/qwer/')
+#def grape():
+#    return render_template('')
+
 @app.route('/map/', methods=['POST'])
 def apple():
 
