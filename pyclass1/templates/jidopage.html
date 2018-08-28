@@ -83,12 +83,15 @@
                       
                     });
                     
-                    {% for i in range(1, 1163): %}
-                        var marker = new naver.maps.Marker({
-                        position: new naver.maps.LatLng({{wedo[i]}}, {{keungdo[i]}}),
-                        map: map
-                        });
+
+                    {% for i in range(1, 1163): %}{
+                          var marker = new naver.maps.Marker({
+                          position: new naver.maps.LatLng({{wedo[i]}}, {{keungdo[i]}}),
+                          map: map
+                          });
+                    }
                     {% endfor %}
+                    
                     // hello
 
                     // 마커 클릭 이벤트 처리
