@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 
 
-reader = csv.reader(open('numOfBike.csv','r'), delimiter=",")
+reader = csv.reader(open('numOfBike.csv','r'), delimiter="\t")
 
 svg = open("Seoul_districts.svg","r").read()
 
@@ -16,7 +16,7 @@ customer_count = {}
 
 counts_only = []
 
-min_value=100; max_value=0; past_header=False;
+min_value=0; max_value=100; past_header=False;
 
 for row in reader:
 
@@ -44,7 +44,7 @@ for row in reader:
 
     
 
-soup = BeautifulSoup(svg)
+soup = BeautifulSoup(svg, "html.parser")
 
 
 
