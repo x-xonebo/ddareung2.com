@@ -23,6 +23,7 @@ for lines in crd:
     lon.append(float(lines[10]))
 
 fp.close()
+#dfijwofjqwoejoqwejfoqijwefio
 
 
 
