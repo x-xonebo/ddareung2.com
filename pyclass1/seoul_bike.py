@@ -16,7 +16,7 @@ customer_count = {}
 
 counts_only = []
 
-min_value=0; max_value=100; past_header=False;
+min_value=100; max_value=0; past_header=False;
 
 for row in reader:
 

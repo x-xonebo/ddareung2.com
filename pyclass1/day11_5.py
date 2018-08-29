@@ -4,6 +4,7 @@
 import csv
 import random
  
+# 따릉이위치
 f = open('parkbicyclenew2.csv', 'r', encoding='UTF8')
 rdr = csv.reader(f)
 wedo = []
@@ -11,16 +12,16 @@ keungdo = []
 for line in rdr:
     wedo.append(float(line[5]))
     keungdo.append(float(line[6]))
-    
-
 f.close()
-fp = open('parkbicycle.csv','r')
+
+# 공원위치
+fp = open('park_location4.csv','r',encoding='utf=8')
 crd = csv.reader(fp)
 lat = []
 lon = []
 for lines in crd:
-    lat.append(float(lines[9]))
-    lon.append(float(lines[10]))
+    lat.append(float(lines[5]))
+    lon.append(float(lines[6]))
 
 fp.close()
 #dfijwofjqwoejoqwejfoqijwefio
@@ -53,6 +54,13 @@ def grape():
 def grape2():
     
     return render_template('garak_park.html')
+
+@app.route("/static/")
+# 뷰함수 -> 화면 표시 함수
+# templates 폴더 아래의 index.html 로 연결
+def grape3():
+    
+    return render_template('seoul_bike.html')
 
 
 #@app.route('/qwer/')
