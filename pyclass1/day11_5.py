@@ -4,16 +4,8 @@
 import csv
 import random
  
-<<<<<<< HEAD
 # 따릉이위치
 f = open('parkbicyclenew2.csv', 'r', encoding='UTF8')
-=======
-<<<<<<< HEAD
-f = open('C:/Users/전유정/Desktop/multi/parkbicyclenew2.csv', 'r', encoding='UTF8')
-=======
-f = open('C:/Users/student/Desktop/ssss/parkbicyclenew2.csv', 'r', encoding='UTF8')
->>>>>>> 24c180e1e43f77ed26ee44bbe86c93fd72c3162d
->>>>>>> cbd3613921b932df08993481918ed9a3f7302720
 rdr = csv.reader(f)
 wedo = []
 keungdo = []
@@ -21,18 +13,10 @@ for line in rdr:
     wedo.append(float(line[5]))
     keungdo.append(float(line[6]))
 f.close()
-<<<<<<< HEAD
+
 
 # 공원위치
 fp = open('park_location4.csv','r',encoding='utf=8')
-=======
-'''
-<<<<<<< HEAD
-fp = open('C:/Users/전유정/Desktop/multi/parkbicycle.csv','r')
-=======
-fp = open('C:/Users/student/Desktop/ssss/parkbicycle.csv','r')
->>>>>>> 24c180e1e43f77ed26ee44bbe86c93fd72c3162d
->>>>>>> cbd3613921b932df08993481918ed9a3f7302720
 crd = csv.reader(fp)
 lat = []
 lon = []
@@ -41,7 +25,7 @@ for lines in crd:
     lon.append(float(lines[6]))
 
 fp.close()
-'''
+
 #dfijwofjqwoejoqwejfoqijwefio
 
 
