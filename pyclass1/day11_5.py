@@ -40,12 +40,20 @@ app = Flask(__name__)
 def hello_world():
     return render_template('tvtvtv.html', wedo=wedo)
 
-@app.route("/abcd/")
+@app.route("/map1/")
 # 뷰함수 -> 화면 표시 함수
 # templates 폴더 아래의 index.html 로 연결
 def grape():
     
-    return render_template('parkpark.html')
+    return render_template('yeoksam_park.html')
+
+@app.route("/map2/")
+# 뷰함수 -> 화면 표시 함수
+# templates 폴더 아래의 index.html 로 연결
+def grape2():
+    
+    return render_template('garak_park.html')
+
 
 #@app.route('/qwer/')
 #def grape():
@@ -58,6 +66,8 @@ def apple():
     
    
     return render_template('jidopage.html', maping=maping, wedo=wedo, keungdo=keungdo, lat=lat, lon=lon)
+
+
 
 # 앱 실행
 if __name__ == "__main__":
