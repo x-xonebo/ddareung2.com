@@ -14,6 +14,17 @@ for line in rdr:
     
 
 f.close()
+fp = open('parkbicycle.csv','r')
+crd = csv.reader(fp)
+lat = []
+lon = []
+for lines in crd:
+    lat.append(float(lines[9]))
+    lon.append(float(lines[10]))
+
+fp.close()
+
+
 
 # 플라스크 모듈 불러오기
 from flask import Flask, render_template, request
@@ -45,7 +56,7 @@ def apple():
     maping = request.form['maping']
     
    
-    return render_template('jidopage.html', maping=maping, wedo=wedo, keungdo=keungdo)
+    return render_template('jidopage.html', maping=maping, wedo=wedo, keungdo=keungdo, lat=lat, lon=lon)
 
 # 앱 실행
 if __name__ == "__main__":
