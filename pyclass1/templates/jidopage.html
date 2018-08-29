@@ -82,12 +82,39 @@
                       map: map
                       
                     });
+                    naver.maps.Event.addListener(map, 'click', function(e) {
+                        marker.setPosition(e.latlng);
+                    });
                     
 
                     {% for i in range(1, 1163): %}{
-                          var marker = new naver.maps.Marker({
-                          position: new naver.maps.LatLng({{wedo[i]}}, {{keungdo[i]}}),
-                          map: map
+                        var marker = new naver.maps.Marker({
+                          position: new naver.maps.LatLng({{wedo[i]}}, {{keungdo[i]}}),  
+                          map: map,
+                          icon: {
+                            url: 'https://cdn.icon-icons.com/icons2/1561/PNG/128/present5_107563.png', //50, 68 크기의 원본 이미지
+                            size: new naver.maps.Size(25, 34),
+                            scaledSize: new naver.maps.Size(25, 34),
+                            origin: new naver.maps.Point(0, 0),
+                            anchor: new naver.maps.Point(12, 34)
+                        }
+                          
+                      });
+                    }
+                    {% endfor %}
+
+                    {% for i in range(1, 445): %}{
+                        var marker = new naver.maps.Marker({
+                          position: new naver.maps.LatLng({{lat[i]}}, {{lon[i]}}),
+                          map: map,
+                          icon: {
+                            url: 'https://cdn.icon-icons.com/icons2/1558/PNG/128/353397-circle-map-marker-pin_107478.png', //50, 68 크기의 원본 이미지
+                            size: new naver.maps.Size(25, 34),
+                            scaledSize: new naver.maps.Size(25, 34),
+                            origin: new naver.maps.Point(0, 0),
+                            anchor: new naver.maps.Point(12, 34)
+                        }
+                          
                           });
                     }
                     {% endfor %}
@@ -133,6 +160,7 @@
               <h2 class="card-title"></h2>
               <p class="card-text">고객님의 현재위치를 기준으로 반경 5km이내의 따릉이 위치를 표시했습니다. 근처 공원을 찾으시려면 버튼을 눌러주세요.</p>
               <p style="color:green"><br>(고객님의 위치를 중심으로 반경 10km 이내의 공원을 표시합니다)</p>
+<<<<<<< HEAD
               <span class="asdf">
                 {% if maping == '서울특별시 강남구 테헤란로 212':%}
                     <a href="/map1" class="btn btn-success">자세히 보기 &rarr;</a>
@@ -142,6 +170,9 @@
                     <a href="/map1" class="btn btn-success">자세히 보기 &rarr;</a>
                 {% endif %}
               </span>
+=======
+              <span class="asdf"><a href="/qwer" class="btn btn-success">자세히 보기 &rarr;</a></span>
+>>>>>>> 8b360adfc240d8131c4a3ced0edd231b554779bd
             </div>
             <div class="card-footer text-muted" >
               최근 업데이트 날짜 : 8월 23일 2018년
@@ -191,7 +222,7 @@
                       <a href="#">데이트</a>
                     </li>
                     <li>
-                      <a href="#">공원</a>
+                      <a href="/abcd">공원</a>
                     </li>
                     <li>
                       <a href="#">가성비</a>
@@ -220,6 +251,10 @@
             <h5 class="card-header">오늘의 날씨</h5>
             <div class="card-body">
               오후 13:00 에 비가올 예정이오니 따릉이를 이용하시기에 어려울것 같습니다!
+              <center>
+                <!-- weather widget start --><a target="_blank" href="http://booked.kr/weather/seoul-18406"><img src="https://w.bookcdn.com/weather/picture/3_18406_1_24_137AE9_160_ffffff_333333_08488D_1_ffffff_333333_0_6.png?scode=2&domid=593&anc_id=55131"  alt="booked.net"/></a><!-- weather widget end -->
+
+              </center>
             </div>
           </div>
 
