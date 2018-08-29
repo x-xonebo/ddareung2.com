@@ -26,8 +26,6 @@ for lines in crd:
 
 fp.close()
 
-#dfijwofjqwoejoqwejfoqijwefio
-
 
 
 # 플라스크 모듈 불러오기
