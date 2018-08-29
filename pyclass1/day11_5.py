@@ -4,7 +4,7 @@
 import csv
 import random
  
-f = open('parkbicyclenew2.csv', 'r', encoding='UTF8')
+f = open('C:/Users/전유정/Desktop/multi/parkbicyclenew2.csv', 'r', encoding='UTF8')
 rdr = csv.reader(f)
 wedo = []
 keungdo = []
@@ -14,7 +14,8 @@ for line in rdr:
     
 
 f.close()
-fp = open('parkbicycle.csv','r')
+'''
+fp = open('C:/Users/전유정/Desktop/multi/parkbicycle.csv','r')
 crd = csv.reader(fp)
 lat = []
 lon = []
@@ -23,6 +24,7 @@ for lines in crd:
     lon.append(float(lines[10]))
 
 fp.close()
+'''
 #dfijwofjqwoejoqwejfoqijwefio
 
 
