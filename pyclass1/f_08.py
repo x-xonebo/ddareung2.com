@@ -22,7 +22,7 @@ def username(username='윤봉길'):
 # random.choice([값1, 값2, 값3....])
 @app.route('/gift/<username>')
 def gift(username) :
-    choice = random.choice(['스타벅스 5만원권', '현금100만원', '문화상품권 40만원', '수박 한통', '꽝', '꽝', '꽝'])
+    choice = random.choice(['스타벅스 7만원권', '현금100만원', '문화상품권 40만원', '수박 한통', '꽝', '꽝', '꽝'])
     return render_template('f_08_gift.html', username=username, choice = choice)
 
 
